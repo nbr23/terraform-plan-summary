@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "terraform-plan-summary"
-version = "1.0.1"
+version = "1.0.2"
 description = "Summarize Terraform plan outputs."
 authors = [{name = "nbr23", email = "max@23.tf"}]
 license = "MIT"

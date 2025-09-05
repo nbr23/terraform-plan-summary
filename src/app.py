@@ -2,6 +2,14 @@ import sys
 import json
 import argparse
 import subprocess
+from importlib.metadata import version, PackageNotFoundError
+
+
+def get_version():
+    try:
+        return version("terraform-plan-summary")
+    except PackageNotFoundError:
+        return "unknown"
 
 
 class Colors:
@@ -215,6 +223,11 @@ def main():
         "--show-ids",
         action="store_true",
         help="Display resource identifiers (name, arn, or id) in the summary.",
+    )
+    parser.add_argument(
+        "--version",
+        action="version",
+        version=f"terraform-plan-summary {get_version()}",
     )
     args = parser.parse_args()
 
